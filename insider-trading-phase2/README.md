@@ -8,9 +8,13 @@ Open `phase2_insider_trading.ipynb` in VS Code or Jupyter. Install `requirements
 in the selected Python environment. All project code will live in the notebook;
 there are no separate extraction or cleaning scripts.
 
-No datasets, extraction, API calls, cleaning results, plots, or hypothesis tests
-are included yet. Data-loading examples are commented out until the files arrive.
-Once supplied, update paths and add cleaning and EDA in short, explained cells.
+The notebook now loads the four required SEC table types from all 24 quarters
+in 2020-2025, labels each row with its source quarter, and displays input row counts.
+Run the imports and loading cells from this folder (or from the repository root).
+The first loading check read all 96 TSVs in about 40 seconds on this computer;
+performance and memory use vary across machines. The uncompressed inputs total
+about 1.31 GB. Price loading, cleaning, plots, and hypothesis tests remain to be added.
+No network requests are made by the current notebook.
 
 Suggested locations:
 - `data/raw/sec/`: the supplied SEC tables.

@@ -13,12 +13,24 @@ in 2020-2025, labels each row with its source quarter, and displays input row co
 Run the imports and loading cells from this folder (or from the repository root).
 The first loading check read all 96 TSVs in about 40 seconds on this computer;
 performance and memory use vary across machines. The uncompressed inputs total
-about 1.31 GB. Price loading, cleaning, plots, and hypothesis tests remain to be added.
+about 1.31 GB. Historical membership and the supplied S&P 500 index benchmark now also have loading
+cells. Individual-company price loading, cleaning, plots, and hypothesis tests
+remain to be added.
 No network requests are made by the current notebook.
+
+Historical membership cleaning is now implemented in the cleaning appendix. It
+retains the starting snapshot and changes covering the actual SEC filing dates,
+then creates `df_historical_clean` with ticker/date coverage intervals. The saved
+output is `data/processed/historical_membership_clean.csv`. Its end dates are
+exclusive; parse all three date columns when reloading the CSV. Raw inputs are
+preserved. SEC transaction and company-price cleaning remain to be completed.
+
 
 Suggested locations:
 - `data/raw/sec/`: the supplied SEC tables.
-- `data/raw/prices/`: the supplied stock-price data, including SPY.
+- `data/raw/historical/`: the supplied historical S&P 500 membership CSV.
+- `data/raw/prices/`: the supplied S&P 500 index benchmark CSV; company prices and
+  any SPY series will be added separately.
 - `data/interim/`: intermediate cleaning files, if useful.
 - `data/processed/`: final cleaned files.
 

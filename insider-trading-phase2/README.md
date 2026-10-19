@@ -13,9 +13,8 @@ in 2020-2025, labels each row with its source quarter, and displays input row co
 Run the imports and loading cells from this folder (or from the repository root).
 The first loading check read all 96 TSVs in about 40 seconds on this computer;
 performance and memory use vary across machines. The uncompressed inputs total
-about 1.31 GB. Historical membership and the supplied S&P 500 index benchmark now also have loading
-cells. Individual-company price loading, cleaning, plots, and hypothesis tests
-remain to be added.
+about 1.31 GB. Historical membership also has a loading cell. Stock-price loading,
+SEC and price cleaning, plots, and hypothesis tests remain to be added.
 No network requests are made by the current notebook.
 
 Historical membership cleaning is now implemented in the cleaning appendix. It
@@ -29,8 +28,8 @@ preserved. SEC transaction and company-price cleaning remain to be completed.
 Suggested locations:
 - `data/raw/sec/`: the supplied SEC tables.
 - `data/raw/historical/`: the supplied historical S&P 500 membership CSV.
-- `data/raw/prices/`: the supplied S&P 500 index benchmark CSV; company prices and
-  any SPY series will be added separately.
+- `data/raw/prices/`: intended location for company prices and the planned SPY series;
+  these are not yet loaded in the notebook.
 - `data/interim/`: intermediate cleaning files, if useful.
 - `data/processed/`: final cleaned files.
 

@@ -13,9 +13,13 @@ in 2020-2025, labels each row with its source quarter, and displays input row co
 Run the imports and loading cells from this folder (or from the repository root).
 The first loading check read all 96 TSVs in about 40 seconds on this computer;
 performance and memory use vary across machines. The uncompressed inputs total
-about 1.31 GB. Historical membership also has a loading cell. Stock-price loading,
+about 1.31 GB. Historical membership also has a loading cell. Weekly stock-price collection via yfinance is prepared after the ticker grouping.
 SEC and price cleaning, plots, and hypothesis tests remain to be added.
-No network requests are made by the current notebook.
+The weekly-price cell keeps saved Yahoo Finance downloads and retries missing
+tickers. Verified ticker changes are mapped, and AVB daily prices are aggregated
+to weekly bars. Prices are saved to `data/raw/prices/weekly_stock_prices.csv`;
+unresolved symbols and error messages are saved to `weekly_stock_prices_missing.csv`
+in the same folder. Other loading cells read local files.
 
 Historical membership cleaning is now implemented in the cleaning appendix. It
 retains the starting snapshot and changes covering the actual SEC filing dates,
@@ -28,8 +32,8 @@ preserved. SEC transaction and company-price cleaning remain to be completed.
 Suggested locations:
 - `data/raw/sec/`: the supplied SEC tables.
 - `data/raw/historical/`: the supplied historical S&P 500 membership CSV.
-- `data/raw/prices/`: intended location for company prices and the planned SPY series;
-  these are not yet loaded in the notebook.
+- `data/raw/prices/`: the weekly company-price CSV saved by the yfinance cell.
+  A separate market-benchmark series remains to be collected.
 - `data/interim/`: intermediate cleaning files, if useful.
 - `data/processed/`: final cleaned files.
 

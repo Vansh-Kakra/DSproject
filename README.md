@@ -1,6 +1,20 @@
-# DSproject
-Data Science Project
-- Most likely going with Idea 1 (Insider Trading) or Idea 3 (Land Acquistion Value Estimator)
-- Idea 3 update: reframed from a plain value estimator into "is an underpriced house actually a bargain?" Zillow and Redfin ban scraping, so we'd backtest on Cook County public sales instead (~248k Chicago sales since 2012, ~77k repeat-sale pairs).
-- Worry for Idea 3: a house that looks cheap is often cheap for a reason (bad condition). Plan is to use Chicago permits and violations to check, and subtract renovation spending before calling anything a deal.
-- Idea 1 vs Idea 3: both join a signal to an outcome (Form 4 filing → stock returns, price gap → resale gain), and both break if we leak future data into the past. Deciding after mentor feedback.
+# Insider Disclosures and Stock Returns
+
+Cornell INFO 2950 group project exploring SEC insider purchases and sales, historical S&P 500 membership, and stock returns.
+
+## Phase 2: Start Here
+
+1. **[Read the Phase 2 report (PDF)](insider-trading-phase2/phase2_insider_trading.pdf)**
+2. **[View the analysis and code (Jupyter notebook)](insider-trading-phase2/phase2_insider_trading.ipynb)**
+
+The completed Phase 2 work is on **main**, inside [insider-trading-phase2](insider-trading-phase2/). The notebook includes saved results and charts, so you can read it on GitHub without running it.
+
+## What Is Included
+
+Phase 2 covers data preparation, exploratory analysis, limitations, two planned Phase 3 analyses, and reviewer questions. The planned research models have not been run.
+
+For data locations and instructions to run the notebook, see the [Phase 2 folder guide](insider-trading-phase2/README.md).
+
+**Group:** Vansh Kakra, Dev Shukla, and Wilson Wang.
+
+**Mentor:** Saif Mahmud.

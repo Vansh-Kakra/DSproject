@@ -1,49 +1,33 @@
-# Insider trading project - Phase 2 starter
+# Phase 2: Insider Disclosures and Stock Returns
 
-This is a simple notebook outline modeled on the supplied past-year InvestmentFunds
-example, with the sections required by the current Phase 2 rubric. It includes
-SciPy, NumPy, DuckDB, Seaborn, Pandas, and Matplotlib imports.
+1. **[Read the report (PDF)](phase2_insider_trading.pdf)**
+2. **[View the analysis and code (Jupyter notebook)](phase2_insider_trading.ipynb)**
 
-Open `phase2_insider_trading.ipynb` in VS Code or Jupyter. Install `requirements.txt`
-in the selected Python environment. All project code will live in the notebook;
-there are no separate extraction or cleaning scripts.
+The notebook contains executed data preparation and exploratory analysis, followed by limitations, two planned Phase 3 analyses, and reviewer questions. Its saved tables and charts can be read on GitHub. The planned research models remain unrun.
 
-The notebook now loads the four required SEC table types from all 24 quarters
-in 2020-2025, labels each row with its source quarter, and displays input row counts.
-Run the imports and loading cells from this folder (or from the repository root).
-The first loading check read all 96 TSVs in about 40 seconds on this computer;
-performance and memory use vary across machines. The uncompressed inputs total
-about 1.31 GB. Historical membership also has a loading cell. Weekly stock-price collection via yfinance is prepared after the ticker grouping.
-SEC and price cleaning, plots, and hypothesis tests remain to be added.
-The weekly-price cell keeps saved Yahoo Finance downloads and retries missing
-tickers. Verified ticker changes are mapped, and AVB daily prices are aggregated
-to weekly bars. Prices are saved to `data/raw/prices/weekly_stock_prices.csv`;
-unresolved symbols and error messages are saved to `weekly_stock_prices_missing.csv`
-in the same folder. Other loading cells read local files.
+## Files in This Folder
 
-Historical membership cleaning is now implemented in the cleaning appendix. It
-retains the starting snapshot and changes covering the actual SEC filing dates,
-then creates `df_historical_clean` with ticker/date coverage intervals. The saved
-output is `data/processed/historical_membership_clean.csv`. Its end dates are
-exclusive; parse all three date columns when reloading the CSV. Raw inputs are
-preserved. SEC transaction and company-price cleaning remain to be completed.
+| File or folder | Purpose |
+| --- | --- |
+| `phase2_insider_trading.pdf` | Readable report exported from the notebook. |
+| `phase2_insider_trading.ipynb` | Analysis code, explanations, tables, and charts. |
+| `data/raw/` | SEC tables, historical membership, and saved price inputs. |
+| `data/interim/` | Intermediate cleaned trade and matching files. |
+| `data/processed/` | Membership intervals and the final event table. |
+| `collect_prices.py` | Price-collection script retained for reproducibility. |
+| `requirements.txt` | Python dependencies. |
+| `.env.example` | Optional example environment settings. |
+| `.gitignore` | Excludes local credentials and temporary files from Git. |
 
+## Run the Notebook
 
-Suggested locations:
-- `data/raw/sec/`: the supplied SEC tables.
-- `data/raw/historical/`: the supplied historical S&P 500 membership CSV.
-- `data/raw/prices/`: the weekly company-price CSV saved by the yfinance cell.
-  A separate market-benchmark series remains to be collected.
-- `data/interim/`: intermediate cleaning files, if useful.
-- `data/processed/`: final cleaned files.
+1. Download or clone the repository, including the data folders.
+2. Open this folder in Jupyter or VS Code and install dependencies with `python -m pip install -r requirements.txt` in your Python environment.
+3. Open `phase2_insider_trading.ipynb` and select the course Python environment. The saved kernel name is `2950`.
+4. Restart the kernel and run all cells from top to bottom. Loading the raw SEC inputs requires approximately 1.3 GB of input files and additional memory for processing.
 
-The draft preregistrations must be completed before their tests are run. Replace
-bracketed prompts with actual information before submission. The finished notebook
-must be executed on real data and exported to PDF; this starter is not a completed
-Phase 2 submission.
+SEC inputs belong in `data/raw/sec/`, with four TSV tables per quarter across 2020-2025. Historical membership inputs belong in `data/raw/historical/`, and saved prices in `data/raw/prices/`. Keep these paths unchanged.
 
-For GitHub, `.gitignore` excludes local credentials, environments, and temporary
-notebook files. Dataset folders are not ignored. An optional `.env.example` is
-provided for future API access; each teammate can make their own local `.env`.
-The starter does not use an API key. Do not commit an actual key or print it in
-saved notebook outputs. Nothing has been uploaded to GitHub.
+Use the saved prices. Do not rerun `collect_prices.py` for a normal notebook run. If you edit the notebook, export a new PDF so the report matches it.
+
+[Back to the project overview](../README.md)

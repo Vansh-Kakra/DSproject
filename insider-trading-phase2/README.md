@@ -19,6 +19,32 @@ The notebook contains executed data preparation and exploratory analysis, follow
 | `.env.example` | Optional example environment settings. |
 | `.gitignore` | Excludes local credentials and temporary files from Git. |
 
+### Requirements and expected resources
+
+A full notebook run requires the raw SEC source files, which total approximately **1.3 GB** across 24 quarterly releases. The project also uses historical S&P 500 membership data and saved daily price data. A full run needs several gigabytes of available memory because multiple SEC tables are loaded and merged in memory. Runtime depends on the computer used; loading the SEC source tables took about 17 seconds in the recorded run, while the complete notebook may take longer because it performs cleaning, matching, return calculations, table creation, and figure generation.
+
+### What can be run without raw SEC files
+
+The raw SEC files are required to reproduce the complete collection and cleaning pipeline from the beginning. However, the saved processed event dataset can be used to inspect the final analysis-ready sample and reproduce downstream descriptive analysis or Phase 3 modeling without reloading all raw source files.
+The final analysis-ready dataset is available here: [`data/processed/insider_events.csv`](data/processed/insider_events.csv).
+The saved intermediate files in `data/interim/` also allow reviewers to inspect cleaned transactions, S&P 500-matched trades, and ticker-to-CIK links without repeating every earlier processing step.
+
+### Expected notebook outputs
+
+After a successful full run, the notebook produces:
+- combined SEC source tables and quarterly coverage checks;
+- cleaned historical S&P 500 membership intervals;
+- cleaned SEC purchase and sale transaction data;
+- matched S&P 500 transaction records and ticker-to-CIK links;
+- weekly stock and SPY returns;
+- the final event-level dataset at [`data/processed/insider_events.csv`](data/processed/insider_events.csv);
+- cleaning-funnel tables, coverage summaries, descriptive statistics, and EDA charts;
+- documented limitations, planned Phase 3 analyses, and reviewer questions.
+
+### Keeping the report current
+
+The PDF report is an exported version of the notebook. If the notebook code, outputs, figures, or written explanations change, export a new `phase2_insider_trading.pdf` before submission so that the report matches the notebook and saved datasets.
+
 ## Run the Notebook
 
 1. Download or clone the repository, including the data folders.

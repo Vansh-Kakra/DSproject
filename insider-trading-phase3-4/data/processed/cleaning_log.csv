@@ -1,0 +1,10 @@
+step,rows
+Raw non-derivative transactions,1841674
+1a. Forms 4 and 4/A only,1820329
+1b. Purchase (P) and sale (S) codes only,711439
+"1c. Valid dates (lag 0-365 days), shares > 0, price > 0",700020
+1d. Superseded amendment rows removed,692025
+2b. Company in S&P 500 on filing date,127529
+2c. Same trade under two CIKs removed,127368
+4a. Trades rolled up into company-week events (rows = events),27820
+4b. Events with a price series and >= 40 weeks for beta,26100

@@ -1,20 +1,11 @@
 # Insider Disclosures and Stock Returns
 
-Cornell INFO 2950 group project exploring SEC insider purchases and sales, historical S&P 500 membership, and stock returns.
+**[Read the Phase 3 report (PDF)](insider-trading-phase3-4/phase3_insider_trading.pdf)** · [View the executed analysis notebook](insider-trading-phase3-4/phase3_insider_trading.ipynb)
 
-## Phase 2: Start Here
+When insiders at S&P 500 companies reported buying shares, how did their stocks perform over the following 13 weeks? We compared returns after purchase and sale disclosures, then tested whether knowing who bought shares and how much they spent helped predict returns after a purchase.
 
-1. **[Read the Phase 2 report (PDF)](insider-trading-phase2/phase2_insider_trading.pdf)**
-2. **[View the analysis and code (Jupyter notebook)](insider-trading-phase2/phase2_insider_trading.ipynb)**
+Across 26,100 events with usable returns, stocks averaged **2.13 percentage points above their market-based expected return after purchases** and **2.47 points below it after sales**. The gap was **4.60 percentage points**. Executive participation and purchase size showed positive associations in the historical data, but the model barely improved predictions for later purchases. The [Phase 3 findings and methods](insider-trading-phase3-4/README.md) explain what the uncertainty checks support and why companies experiencing the same market shocks limit the conclusions.
 
-The completed Phase 2 work is on **main**, inside [insider-trading-phase2](insider-trading-phase2/). The notebook includes saved results and charts, so you can read it on GitHub without running it.
+The [cleaning notebook](insider-trading-phase3-4/data_cleaning.ipynb) shows how the event data were prepared. The [Phase 2 report](insider-trading-phase2/phase2_insider_trading.pdf) and [Phase 2 notebook](insider-trading-phase2/phase2_insider_trading.ipynb) document the original data exploration and research plans.
 
-## What Is Included
-
-Phase 2 covers data preparation, exploratory analysis, limitations, two planned Phase 3 analyses, and reviewer questions. The planned research models have not been run.
-
-For data locations and instructions to run the notebook, see the [Phase 2 folder guide](insider-trading-phase2/README.md).
-
-**Group:** Vansh Kakra, Dev Shukla, and Wilson Wang.
-
-**Mentor:** Saif Mahmud.
+Cornell INFO 2950 | Vansh Kakra, Dev Shukla, and Wilson Wang | Mentor: Saif Mahmud

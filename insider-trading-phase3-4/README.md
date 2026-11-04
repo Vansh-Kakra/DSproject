@@ -1,34 +1,19 @@
-# Insider Disclosures and Stock Returns: Phases 3 and 4
+# Insider Disclosures and Stock Returns: Phase 3
 
-Analysis and reports building on our submitted Phase 2 project.
+**[Read the Phase 3 report (PDF)](phase3_insider_trading.pdf)** · [View the executed Jupyter notebook](phase3_insider_trading.ipynb)
 
-## Start here
+We studied public insider purchase and sale disclosures filed from 2020 through 2025 for companies that belonged to the S&P 500 at the time. We asked whether stocks performed better after purchases than after sales, and whether the size of a purchase or the participation of a senior executive helped explain what happened next.
 
-1. Open [the Phase 3 analysis notebook](phase3_insider_trading.ipynb). It includes data checks, original preregistrations, dated protocols, fitted models, overlap sensitivities, time-based prediction evaluation, conditional bootstrap intervals, and written interpretations.
-2. Use the Phase 2 Python environment with scikit-learn added. The analysis uses pandas, NumPy, scikit-learn, matplotlib, and IPython. Install the packages listed in `requirements.txt` if needed. Select the `2950` kernel, restart it, and run all cells from either the repository root or this folder.
-3. For the full preparation process, see [the cleaning notebook](data_cleaning.ipynb). It reads the saved raw files from `../insider-trading-phase2/data/raw` and writes new outputs inside this folder. Do not rerun the price-collection script.
+## What we found
 
-## Current status
+**Returns after purchases and sales.** We grouped disclosures by company, week, and trade direction. For each event, we measured how far the stock's weekly return was above or below what its past relationship with the market would predict. We added those differences over 13 weeks, the horizon chosen in Phase 2. Across 2,227 purchase events, the average cumulative abnormal return was **+2.13 percentage points**. Across 23,873 sale events, it was **−2.47 points**. The **4.60-point gap** remained positive when we excluded mixed buying and selling weeks and removed overlapping return periods within each company.
 
-The data checks and both research regressions have been executed. The original preregistrations are reproduced verbatim, including their original section numbers. The November 4 protocol was recorded in commit `687f426` before fitting the models. It specifies the time split and overlap sensitivity rules.
+**Who bought and how much they spent.** Among purchases, events involving a C-suite executive averaged **2.18 percentage points higher** in the fitted model when purchase value and insider count were held constant. Larger purchases also had a positive estimated association. Yet on 690 later purchase events, the model's prediction error (root mean squared error) was **19.45 percentage points**, compared with **19.51** for simply predicting the earlier average every time. Knowing these details added little predictive value.
 
-The prediction model uses 1,425 earlier purchase events whose outcomes ended before January 1, 2024. It excludes 112 events crossing that boundary and evaluates 690 later events. Full-sample purchase mean CAR is 2.13 percentage points, compared with -2.47 for sales. The purchase model's test RMSE is 19.45 points versus 19.51 for a training-mean baseline. Sections 6-9 contain sample counts, sensitivities, coefficients, diagnostics, and interpretations.
+**How much confidence to place in the results.** For the uncertainty check, we kept one eligible event per company in each comparison so that frequent filers did not count repeatedly. After adjusting the intervals for four tests, the purchase average and the purchase-minus-sale gap were both above zero; the intervals for executive participation and purchase size included zero. These checks describe the smaller samples. Of the 537 events in the purchase-versus-sale check, 445 occurred in 2020. Different companies could have responded to the same news, so the check does not establish statistical significance for all 26,100 events.
 
-Section 10 now contains a limited uncertainty analysis using course methods: whole-row bootstrap resampling, percentile confidence intervals, and Bonferroni adjustment for four claims. Its protocol was recorded in commit `1769c34` before computing the intervals, after the earlier model results were known. Each inference sample retains one earliest eligible non-mixed event per company. The comparison sample has 537 companies (101 purchase and 436 sale events); the purchase-only sample has 380 companies.
+## Data and reproducibility
 
-The four 98.75% intervals exclude zero for the purchase mean and purchase-minus-sale difference, and include zero for the C-suite and log-value coefficients. These are conditional decisions for the reduced samples, not confidence intervals for the original full-event estimates. They assume sufficiently independent companies. Shared calendar shocks remain unresolved, and 445 of 537 comparison events occur in 2020, so the analysis does not establish robust significance for the full event population. The inference uses 10,000 draws with fixed seeds and requires no additional packages.
+The [cleaning notebook](data_cleaning.ipynb) explains how we combined SEC filings, historical index membership, and prices. It writes the [cleaned CSV files](data/processed/) used by the analysis. To reproduce the report, install the packages in [requirements.txt](requirements.txt), open [the analysis notebook](phase3_insider_trading.ipynb), select the 2950 kernel, restart it, and run all cells. The saved CSVs are included, so there is no need to download prices again.
 
-The Phase 3 draft now includes conclusions, limitations and potential harms, acknowledgements, and a formatted bibliography. Read the [executed report PDF](phase3_insider_trading.pdf) and the [rubric review](RUBRIC_REVIEW.md). The sampling and dependence limitations remain substantive. Phase 4 still requires reviewing feedback and documenting revisions.
-
-## Cleaned inputs
-
-These files were generated by `data_cleaning.ipynb` and are included so that the opening analysis can run without reprocessing the raw SEC files:
-
-| File | Rows | Purpose |
-|---|---:|---|
-| [insider_events.csv](data/processed/insider_events.csv) | 27,820 | Company-week-direction events, with 25 columns. |
-| [weekly_stock_prices.csv](data/processed/weekly_stock_prices.csv) | 219,378 | Weekly stock returns with matched SPY returns. |
-| [historical_membership_clean.csv](data/processed/historical_membership_clean.csv) | 628 | Historical membership intervals. |
-| [cleaning_log.csv](data/processed/cleaning_log.csv) | 9 | Counts at successive cleaning and event-construction stages. |
-
-The event table matches the saved Phase 2 event values. The analysis imports identifiers as text, parses date columns, and preserves missing plan flags. The original Phase 2 files are unchanged. Intermediate trade files can be regenerated by the cleaning notebook and are not required to run the opening analysis.
+The [rubric review](RUBRIC_REVIEW.md) maps the assignment requirements to report sections. The PDF linked above is the Phase 3 Gradescope deliverable. Both notebooks are available here for readers who want to inspect or reproduce the work.

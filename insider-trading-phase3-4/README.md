@@ -4,7 +4,7 @@ Analysis and reports building on our submitted Phase 2 project.
 
 ## Start here
 
-1. Open [the Phase 3 analysis notebook](phase3_insider_trading.ipynb). It includes the data checks, original preregistrations, dated protocol, fitted models, overlap sensitivities, time-based prediction evaluation, and written interpretations.
+1. Open [the Phase 3 analysis notebook](phase3_insider_trading.ipynb). It includes data checks, original preregistrations, dated protocols, fitted models, overlap sensitivities, time-based prediction evaluation, conditional bootstrap intervals, and written interpretations.
 2. Use the Phase 2 Python environment with scikit-learn added. The analysis uses pandas, NumPy, scikit-learn, matplotlib, and IPython. Install the packages listed in `requirements.txt` if needed. Select the `2950` kernel, restart it, and run all cells from either the repository root or this folder.
 3. For the full preparation process, see [the cleaning notebook](data_cleaning.ipynb). It reads the saved raw files from `../insider-trading-phase2/data/raw` and writes new outputs inside this folder. Do not rerun the price-collection script.
 
@@ -14,7 +14,11 @@ The data checks and both research regressions have been executed. The original p
 
 The prediction model uses 1,425 earlier purchase events whose outcomes ended before January 1, 2024. It excludes 112 events crossing that boundary and evaluates 690 later events. Full-sample purchase mean CAR is 2.13 percentage points, compared with -2.47 for sales. The purchase model's test RMSE is 19.45 points versus 19.51 for a training-mean baseline. Sections 6-9 contain sample counts, sensitivities, coefficients, diagnostics, and interpretations.
 
-Statistical significance has not yet been evaluated with a justified dependence-aware method. The non-overlap check does not remove all shared shocks or repeated-company dependence. The remaining work is uncertainty evaluation, final reporting and acknowledgements, bibliography, and PDF export. This is a working draft, not the complete Phase 3 submission. No TA approval is required to proceed with the documented methodological decisions.
+Section 10 now contains a limited uncertainty analysis using course methods: whole-row bootstrap resampling, percentile confidence intervals, and Bonferroni adjustment for four claims. Its protocol was recorded in commit `1769c34` before computing the intervals, after the earlier model results were known. Each inference sample retains one earliest eligible non-mixed event per company. The comparison sample has 537 companies (101 purchase and 436 sale events); the purchase-only sample has 380 companies.
+
+The four 98.75% intervals exclude zero for the purchase mean and purchase-minus-sale difference, and include zero for the C-suite and log-value coefficients. These are conditional decisions for the reduced samples, not confidence intervals for the original full-event estimates. They assume sufficiently independent companies. Shared calendar shocks remain unresolved, and 445 of 537 comparison events occur in 2020, so the analysis does not establish robust significance for the full event population. The inference uses 10,000 draws with fixed seeds and requires no additional packages.
+
+The remaining work is final reporting and acknowledgements, bibliography, rubric review, and PDF export. This is a working draft, not the complete Phase 3 submission. The final report must retain the sampling and dependence limitations.
 
 ## Cleaned inputs
 

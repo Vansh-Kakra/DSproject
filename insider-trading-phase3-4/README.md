@@ -4,15 +4,17 @@ Analysis and reports building on our submitted Phase 2 project.
 
 ## Start here
 
-1. Open [the Phase 3 analysis notebook](phase3_insider_trading.ipynb). It loads the cleaned CSV files and contains the introduction, data description, original preregistrations, and a dated analysis-plan update.
-2. Use the same Python environment as Phase 2. The opening analysis cells require pandas, NumPy, and IPython. Select the `2950` kernel, restart it, and run all cells from either the repository root or this folder.
+1. Open [the Phase 3 analysis notebook](phase3_insider_trading.ipynb). It includes the data checks, original preregistrations, dated protocol, fitted models, overlap sensitivities, time-based prediction evaluation, and written interpretations.
+2. Use the Phase 2 Python environment with scikit-learn added. The analysis uses pandas, NumPy, scikit-learn, matplotlib, and IPython. Install the packages listed in `requirements.txt` if needed. Select the `2950` kernel, restart it, and run all cells from either the repository root or this folder.
 3. For the full preparation process, see [the cleaning notebook](data_cleaning.ipynb). It reads the saved raw files from `../insider-trading-phase2/data/raw` and writes new outputs inside this folder. Do not rerun the price-collection script.
 
 ## Current status
 
-The opening analysis cells have been executed successfully. They check the imported data without changing observations or fitting research models. The original Phase 2 preregistrations are reproduced verbatim, including their original section numbers. The November 4 update explains why significance testing and validation require additional decisions before modeling.
+The data checks and both research regressions have been executed. The original preregistrations are reproduced verbatim, including their original section numbers. The November 4 protocol was recorded in commit `687f426` before fitting the models. It specifies the time split and overlap sensitivity rules.
 
-The research analyses, final inference protocol, conclusions, findings summary, final acknowledgements and bibliography, and submission PDF remain to be completed. This is a working draft, not the complete Phase 3 submission.
+The prediction model uses 1,425 earlier purchase events whose outcomes ended before January 1, 2024. It excludes 112 events crossing that boundary and evaluates 690 later events. Full-sample purchase mean CAR is 2.13 percentage points, compared with -2.47 for sales. The purchase model's test RMSE is 19.45 points versus 19.51 for a training-mean baseline. Sections 6-9 contain sample counts, sensitivities, coefficients, diagnostics, and interpretations.
+
+Statistical significance has not yet been evaluated with a justified dependence-aware method. The non-overlap check does not remove all shared shocks or repeated-company dependence. The remaining work is uncertainty evaluation, final reporting and acknowledgements, bibliography, and PDF export. This is a working draft, not the complete Phase 3 submission. No TA approval is required to proceed with the documented methodological decisions.
 
 ## Cleaned inputs
 

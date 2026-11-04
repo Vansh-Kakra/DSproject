@@ -1,0 +1,12 @@
+# Data cleaning and analysis dependencies; use a Python 3 environment.
+numpy
+pandas
+scipy
+duckdb
+seaborn
+matplotlib
+scikit-learn
+ipython
+ipykernel
+nbformat
+nbconvert

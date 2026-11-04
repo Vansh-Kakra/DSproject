@@ -1,6 +1,8 @@
 # Insider Disclosures and Stock Returns
 
-**[Read the Phase 3 report (PDF)](insider-trading-phase3-4/phase3_insider_trading.pdf)** · [View the executed analysis notebook](insider-trading-phase3-4/phase3_insider_trading.ipynb)
+**[Read the Phase 3 report (PDF)](insider-trading-phase3-4/phase3_insider_trading.pdf)**
+
+[View the executed analysis notebook](insider-trading-phase3-4/phase3_insider_trading.ipynb)
 
 When insiders at S&P 500 companies reported buying shares, how did their stocks perform over the following 13 weeks? We compared returns after purchase and sale disclosures, then tested whether knowing who bought shares and how much they spent helped predict returns after a purchase.
 

@@ -18,7 +18,7 @@ Section 10 now contains a limited uncertainty analysis using course methods: who
 
 The four 98.75% intervals exclude zero for the purchase mean and purchase-minus-sale difference, and include zero for the C-suite and log-value coefficients. These are conditional decisions for the reduced samples, not confidence intervals for the original full-event estimates. They assume sufficiently independent companies. Shared calendar shocks remain unresolved, and 445 of 537 comparison events occur in 2020, so the analysis does not establish robust significance for the full event population. The inference uses 10,000 draws with fixed seeds and requires no additional packages.
 
-The remaining work is final reporting and acknowledgements, bibliography, rubric review, and PDF export. This is a working draft, not the complete Phase 3 submission. The final report must retain the sampling and dependence limitations.
+The Phase 3 draft now includes conclusions, limitations and potential harms, acknowledgements, and a formatted bibliography. Read the [executed report PDF](phase3_insider_trading.pdf) and the [rubric review](RUBRIC_REVIEW.md). The sampling and dependence limitations remain substantive. Phase 4 still requires reviewing feedback and documenting revisions.
 
 ## Cleaned inputs
 
